@@ -28,11 +28,11 @@ public class ActorService {
         System.out.println(filmRepository.findAll().toString());
     }
 
-    public List<Optional<Actor>> findActorsByMovie(int filmId){
-        ArrayList<Optional<Actor>> actors = new ArrayList<>();
-        for (Integer actorId: filmRepository.findActorsByMovie(filmId)) {
-            actors.add(actorRepository.findById(actorId));
-        }
-        return actors;
-    }
+//    public List<Optional<Actor>> findActorsByMovie(int filmId){
+//        ArrayList<Optional<Actor>> actors = new ArrayList<>();
+//        for (Integer actorId: filmRepository.findActorsByMovie(filmId)) {
+//            actors.add(actorRepository.findById(actorId));
+//        }
+//        return actors;
+//    }
 }

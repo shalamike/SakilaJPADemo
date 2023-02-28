@@ -11,12 +11,12 @@ public class FilmActor {
     private FilmActorId id;
 
     @MapsId("actorId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "actor_id", nullable = false)
     private Actor actor;
 
     @MapsId("filmId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "film_id", nullable = false)
     private Film film;
 
@@ -55,4 +55,13 @@ public class FilmActor {
         this.lastUpdate = lastUpdate;
     }
 
+    @Override
+    public String toString() {
+        return "FilmActor{" +
+                "id=" + id.toString() +
+                ", actor=" + actor.toString() +
+                ", film=" + film.toString() +
+                ", lastUpdate=" + lastUpdate.toString() +
+                '}';
+    }
 }
