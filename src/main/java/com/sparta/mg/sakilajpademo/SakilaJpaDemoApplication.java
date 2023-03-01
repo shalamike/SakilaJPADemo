@@ -6,6 +6,7 @@ import com.sparta.mg.sakilajpademo.model.repositories.ActorRepository;
 import com.sparta.mg.sakilajpademo.model.repositories.FilmActorRepository;
 import com.sparta.mg.sakilajpademo.model.repositories.FilmRepository;
 import com.sparta.mg.sakilajpademo.service.ActorService;
+import com.sparta.mg.sakilajpademo.service.FilmActorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -77,15 +78,15 @@ public class SakilaJpaDemoApplication {
 //        return args -> logger.info(filmActorRepository.findActorsByMovie(6).toString());
 //    }
 
-    @Bean
-    public CommandLineRunner runner(FilmActorRepository filmActorRepository) {
-        return args -> {
-            for (FilmActor fa: filmActorRepository.findActorsByMovie(6)) {
-                logger.info(fa.getActor().toString());
-            }
-
-        };
-    }
+//    @Bean
+//    public CommandLineRunner runner(FilmActorRepository filmActorRepository) {
+//        return args -> {
+//            for (Actor a: filmActorRepository.getActorsByFilm_idJPQL(6)) {
+//                logger.info(a.toString());
+//            }
+//
+//        };
+//    }
 
 //    @Bean
 //    public CommandLineRunner runner3(FilmRepository filmRepository) {
@@ -110,5 +111,15 @@ public class SakilaJpaDemoApplication {
 //
 //        return args -> logger.info(filmActorRepository.findActorsByMovie(6).toString());
 //    }
+
+    @Bean
+    public CommandLineRunner runner(FilmActorService filmActorService) {
+        return args -> {
+            for (Actor a: filmActorService.getActorsByMovieIdJPQL(6)) {
+                logger.info(a.toString());
+            }
+
+        };
+    }
 
 }
